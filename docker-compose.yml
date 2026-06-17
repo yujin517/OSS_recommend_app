@@ -1,0 +1,16 @@
+services:
+  backend:
+    build: ./back
+    container_name: recommendation_backend
+    ports:
+      - "8000:8000"
+    restart: always
+
+  frontend:
+    build: ./front
+    container_name: recommendation_frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
+    restart: always
